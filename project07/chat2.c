@@ -1,0 +1,39 @@
+#include "func.h"
+#include <errno.h>
+#include <string.h>
+
+int main(){
+    char *pipeName1 = "1.pipe";
+    char *pipeName2 = "2.pipe";
+    int fdw = open(pipeName1,O_WRONLY);
+    int fdr = open(pipeName2,O_RDONLY);
+    puts("pipe open!");
+    char buf[4096]={0};
+    fd_set rdset;    //创建一个监听集合
+    while(1)
+    {
+        FD_ZERO(&rdset);     //清空集合中的所有监听
+        FD_SET(STDIN_FILENO,&rdset);   //新增一个监听,监听标准输入
+        FD_SET(fdr,&rdset);        //新增一个监听，监听管道
+        select(fdr+1,&rdset,NULL,NULL,NULL);     //阻塞进程，只有当任意监听的fd就绪时，select才就绪
+        if(FD_ISSET(fdr,&rdset)){
+            memset(buf,0,sizeof(buf));
+            int ret = read(fdr,buf,sizeof(buf));
+            if(ret==0){
+                printf("对方结束聊天\n");
+                break;
+            }
+            puts(buf);
+        }else if(FD_ISSET(STDIN_FILENO,&rdset)){
+            memset(buf,0,sizeof(buf));
+            int ret = read(STDIN_FILENO,buf,sizeof(buf));
+            if(ret==0){
+                write(fdw,"我将结束聊天\n",sizeof("我将结束聊天\n"));
+                break;
+            }
+            write(fdw,buf,strlen(buf));
+        }
+    }
+    return 0;
+}
+     

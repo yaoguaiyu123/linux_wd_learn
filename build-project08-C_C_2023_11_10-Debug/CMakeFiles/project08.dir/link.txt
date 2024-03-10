@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/project08.dir/main.c.o -o project08 

@@ -1,0 +1,3 @@
+/run/media/root/study/SystemProgram/01/build-project06-C_C_2023_11_09-Debug/CMakeFiles/project06.dir
+/run/media/root/study/SystemProgram/01/build-project06-C_C_2023_11_09-Debug/CMakeFiles/edit_cache.dir
+/run/media/root/study/SystemProgram/01/build-project06-C_C_2023_11_09-Debug/CMakeFiles/rebuild_cache.dir
