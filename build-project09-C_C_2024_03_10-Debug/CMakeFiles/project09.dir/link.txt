@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/project09.dir/main.c.o -o project09 

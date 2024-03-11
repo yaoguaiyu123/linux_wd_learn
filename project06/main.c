@@ -149,7 +149,7 @@ void test11()
     puts("pipe open\n");
     char buf[4096];
     fd_set rdset; // 创建一个监听集合，监听读
-    fd_set wrset; // 创建一个监听结合，监听写
+    fd_set wrset; // 创建一个监听集合，监听写
     int cnt = 0;
     while (1) {
         FD_ZERO(&rdset);
