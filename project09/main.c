@@ -6,7 +6,7 @@
 int main()
 {
     int fdr = open("../project09/01.pipe", O_RDONLY);
-    int fdw = open("../project09/02.pipe", O_WRONLY | O_CREAT | O_TRUNC);
+    int fdw = open("../project09/02.pipe", O_WRONLY);
     printf("我是聊天一号机");
     char buf[128] = { 0 };
     while (1) {

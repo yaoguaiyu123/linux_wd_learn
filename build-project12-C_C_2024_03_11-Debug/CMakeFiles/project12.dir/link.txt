@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/project12.dir/main.c.o -o project12 
